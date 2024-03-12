@@ -1,0 +1,27 @@
+//Scroll Effect
+const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const isScrolled = window.scrollY > 0;
+            setScrolled(isScrolled);
+        };
+
+        const handleScrollTop = () => {
+            // Check if the user has scrolled to the very top
+            const isAtTop = window.scrollY === 0;
+            setScrolled(!isAtTop);
+        };
+
+        // Listen for scroll events
+        window.addEventListener('scroll', handleScroll);
+
+        // Listen for the user reaching the top of the page
+        window.addEventListener('scroll', handleScrollTop);
+
+        // Cleanup functions for removing event listeners
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleScrollTop);
+        };
+    }, []);

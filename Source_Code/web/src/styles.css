@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    /* Add padding-top equal to the height of the .navbar */
+    padding-top: 60px;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    height: 60px;
+    width: 100%;
+    background: blue;
+    left: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar h1 {
+    margin-left: 20px; /* Adjust according to your design */
+  }
+  
+  .navbar a {
+    margin-left: 20px; /* Adjust according to your design */
+    text-decoration: none;
+    color: white;
+  }
+  .title {
+    margin-left: 30px;
+  }
+  .body {
+    height: 900px; /* Adjust according to your design */
+  }
+  img {
+    border-radius: 10px;
+    margin: 20px;
+    height: 180px;
+    width: 280px;
+  }
+  .images {
+    margin-left: 40px;
+  }
