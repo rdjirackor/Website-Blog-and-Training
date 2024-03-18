@@ -1,8 +1,12 @@
-import React from 'react';
+import {React, useEffect} from 'react';
 
 function About(){
+  useEffect(() => {
+    document.title = "About Me"; // Set the new page title
+  }, []); // Empty dependency array to run the effect only once when the component mounts
+
     return(    
-  <div className='body'>
+  <div className='body'> 
     <div className='headingforbout'>
    <h2>Who I am and what I'm about</h2>
    </div>
