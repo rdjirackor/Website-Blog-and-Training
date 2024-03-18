@@ -1,6 +1,8 @@
 import React , { useEffect } from 'react';
+import { ReactDOM } from 'react';
 
 import './styles.css'; 
+import About from './About';
 import d from './assets/d.jpeg';
 import d1 from './assets/d1.jpeg';
 import d2 from './assets/d2.jpeg';
@@ -12,38 +14,38 @@ import d7 from './assets/d7.jpeg';
 
 
 function HomePage() {
+  const openArchive=()=>{
+   window.open('https://google.com','_blank');
+  }
     useEffect(() => {
         document.title = "Cybersecurity Training | Technologies and Stories"; // Set the new page title
       }, []); // Empty dependency array to run the effect only once when the component mounts
+
+
   return (
     <>
 
 
-      <div className="navbar">
-        <h1>RichardCyberSec</h1>
-        <a style={{marginLeft:'650px'}}>About</a>
-        <a>Contact</a>
-        <a>Training</a>
-        <a>LinkedIn</a>
-        <a>Stories</a>
-      </div>
-      <div className='body'>
-        <div className='title'>
-      <h1>Cybersecurity Training, Technologies and Stories</h1>
-      </div>
+      
+  <div className='body'>
+        
       <div className='images'>
         <div className='top-row_images'>
-        <img src={d}/>
-        <img src={d1}/>
-        <img src={d2}/>
-        <img src={d3}/>
+       <a href='https:google.com'> <img src={d}/></a>
+       <a href='https:google.com'> <img src={d1}/> </a>
+       <a href='https:google.com'> <img src={d2}/> </a>
+       <a href='https:google.com'><img src={d3}/> </a>
         </div>
         <div className='bottom-row_images'>
-        <img src={d4}/>
-        <img src={d5}/>
-        <img src={d6}/>
-        <img src={d7}/>
+        <a href='https:google.com'><img src={d4}/> </a>
+        <a href='https:google.com'><img src={d5}/> </a>
+        <a href='https:google.com'><img src={d6}/> </a>
+        <a href='https:google.com'><img src={d7}/> </a>
         </div>
+      </div>
+
+      < div className='more'>
+        <button onClick={openArchive}>Story Archives</button>
       </div>
 
       </div>
