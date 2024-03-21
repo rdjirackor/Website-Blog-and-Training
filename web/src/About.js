@@ -5,7 +5,17 @@ function About(){
     document.title = "About Me"; // Set the new page title
   }, []); // Empty dependency array to run the effect only once when the component mounts
 
-    return(    
+useEffect(()=>{
+ const fetchStuff=async()=>{
+  try{}
+  catch(error){}
+ }
+
+
+})
+
+
+  return(    
   <div className='body'> 
     <div className='headingforbout'>
    <h2>Who I am and what I'm about</h2>

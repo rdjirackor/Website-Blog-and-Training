@@ -1,8 +1,11 @@
-import React , { useEffect } from 'react';
+import React , { useEffect, useState } from 'react';
 import { ReactDOM } from 'react';
+import axios from 'axios';
+import cheerio, { Cheerio } from 'cheerio';
+
+
 
 import './styles.css'; 
-import About from './About';
 import d from './assets/d.jpeg';
 import d1 from './assets/d1.jpeg';
 import d2 from './assets/d2.jpeg';
@@ -20,6 +23,37 @@ function HomePage() {
     useEffect(() => {
         document.title = "Cybersecurity Training | Technologies and Stories"; // Set the new page title
       }, []); // Empty dependency array to run the effect only once when the component mounts
+
+      
+      useEffect(() => {
+        const fetchWebData = async () => {
+          try {
+            const raw_web = await axios.get('https://feelfreetoscrapfromus.com');
+            const $ = cheerio.load(raw_web.data);
+            const links = [];
+            $('.focus-articles_link').each((index, element) => {
+              const link = $(element).attr('href');
+              links.push(link);
+            });
+      
+            const divStyle = $('.focus-articles__image').attr('style');
+            const urls_Images = [];
+            const urlRegex = /url\(['"]?(.*?)['"]?\)/g; // Use 'g' flag for global search
+            let match;
+            while ((match = urlRegex.exec(divStyle)) !== null) {
+              urls_Images.push(match[1]);
+            }
+            console.log(urls_Images); // Log extracted image URLs
+          } catch (error) {
+            console.error('Error fetching web data:', error);
+          }
+        };
+      
+        fetchWebData();
+      }, []); // Empty dependency array to run effect only once
+      
+
+
 
 
   return (
